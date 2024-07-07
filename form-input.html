@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script>
+       function bodyload()
+       {
+        document.getElementById("hide").style.display="none";
+       }
+       function dismis()
+       {
+        document.getElementById("hide").style.display="block";
+        document.getElementById("lblnam").innerHTML=document.getElementById("lblname").value;
+        document.getElementById("lblnu").innerHTML=document.getElementById("lblnum").value;
+        document.getElementById("lblselectt").innerHTML=document.getElementById("lblselect").value;
+        lblcheck=document.getElementById("lblcheck");
+        if(lblcheck.checked)
+       {
+        status="out of stock";
+       }
+       else{
+        status="avialable"
+       }
+       document.getElementById("lblcheck").innerHTML=status;
+       }
+    </script>
+</head>
+<body onload="bodyload()">
+    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#pop">click</button>
+    <div class="modal" id="pop">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1>information</h1>
+                    <button data-bs-dismiss="modal" class="btn btn-close"></button>
+
+                </div>
+                <div class="modal-body">
+                    <dl>
+                        <dt>name</dt>
+                        <dd><input id="lblname" class="form-control" type="text"></dd>
+                        <dt>price</dt>
+                        <dd ><input id="lblnum" class="form-control" type="number"></dd>
+                        <dt>stock</dt>
+                        <dd><input  id="lblcheck" class="form-check-input" type="checkbox"></dd>
+                        
+                       
+                    </dl>
+                    <div>
+                        <label>shipped to</label>
+                        <select id="lblselect" class="form-select">
+                            <option>delhi</option>
+                            <option>hyd</option>
+                        </select>
+                    </div>
+                    
+
+
+                </div>
+                <div class="modal-footer">
+                    <button id="dismiss" data-bs-dismiss="modal" onclick="dismis()" class="btn btn-danger">addproduct</button>
+                    <button class="btn btn-danger" data-bs-dismiss="modal">cancel</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div id="hide">
+        <dl class="row">
+            <dt class="col-3">name</dt>
+            <dd id="lblnam" class="col-9" ></dd>
+            <dt class="col-3">price</dt>
+            <dd  id="lblnu"  class="col-9"></dd>
+            <dt class="col-3">stock</dt>
+            <dd id="lblchec"  class="col-9"></dd>
+            <dt class="col-3">shipped to</dt>
+            <dd id="lblselectt"  class="col-9"></dd>
+            
+        </dl>
+    </div>
+    <div class="mt-4">
+        <button onclick="editclick()" data-bs-toggle="modal" data-bs-target="#pop">edit</button>
+
+    </div>
+    
+</body>
+</html>
